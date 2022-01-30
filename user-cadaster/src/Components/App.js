@@ -4,9 +4,9 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div>
+    <body>
       <User />
-    </div>
+    </body>
   );
 };
 

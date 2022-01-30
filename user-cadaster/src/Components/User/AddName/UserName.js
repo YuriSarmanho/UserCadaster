@@ -3,7 +3,7 @@ import './UserName.css'
 
 const UserName = () => {
   return (
-    <div className="UserName-container">
+    <div className="userName-container">
       <h2>UserName</h2>
       <input type={'text'}/>
     </div>
