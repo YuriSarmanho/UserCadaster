@@ -1,17 +1,34 @@
 import React from "react";
-import UserName from "./AddName/UserName";
-import Password from "./AddAge/UserAge";
+import UserName from "./InputName/UserName";
+import Password from "./InputAge/UserAge";
 import Button from "../Button/Button";
+import CadasteredSection from "../CadasteredUsers/CadasteredSection";
 import "./User.css";
 
 const User = () => {
+  const db = [
+    {
+      name: "Pedro",
+      age: "32",
+    },
+    {
+      name: "Yuri",
+      age: "21",
+    },
+    {
+      name: "Renata",
+      age: "46",
+    },
+  ];
+
   return (
     <div className="container">
       <div className="UserCadaster-container">
         <UserName />
         <Password />
-        <Button className="addUser-button" title={'Add User'}/>
+        <Button className="addUser-button" title={"Add User"} />
       </div>
+      <CadasteredSection db={db} />
     </div>
   );
 };
