@@ -1,0 +1,14 @@
+.main-button{
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: .5em;
+    color: #fff;
+    background-color: #4A0B55;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 17px;
+}
+.main-button:hover{
+    background-color: #3a0942;
+}

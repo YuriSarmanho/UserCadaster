@@ -18,18 +18,7 @@
     justify-content: center;
     align-items: center;
 }
-button{
-  width: 150px;
-  height: 40px;
-  border: none;
-  color: #fff;
-  background-color: #4A0B55;
-  margin-top: 10px;
-  cursor: pointer;
-}
-.addUser-button:holver{
-  background-color: green;
-}
+
 
 input{
   width: 100%;
