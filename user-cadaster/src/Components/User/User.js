@@ -26,7 +26,7 @@ const User = () => {
       <div className="UserCadaster-container">
         <UserName />
         <Password />
-        <Button className="addUser-button" title={"Add User"} />
+        <Button className="addUser-button" title={"Adicionar"} />
       </div>
       <CadasteredSection db={db} />
     </div>

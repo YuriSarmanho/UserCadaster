@@ -4,7 +4,7 @@ import './UserName.css'
 const UserName = () => {
   return (
     <div className="userName-container">
-      <h2>UserName</h2>
+      <h2>Usuário</h2>
       <input type={'text'}/>
     </div>
   );

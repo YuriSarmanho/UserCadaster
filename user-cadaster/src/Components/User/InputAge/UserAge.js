@@ -4,7 +4,7 @@ import './UserAge.css'
 const  UserAge = () => {
   return (
     <div className='userAge-container'>
-      <h2>Age(Year)</h2>
+      <h2>Idade</h2>
       <input type={'text'}/>
     </div>
   );
