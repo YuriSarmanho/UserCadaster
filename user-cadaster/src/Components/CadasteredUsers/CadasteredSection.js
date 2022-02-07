@@ -6,7 +6,7 @@ const UserSection = (props) => {
   return (
     <div className="container-cadasters">
       {DB.map((users) => {
-        return <Cadasters name={users.name} age={users.age} />;
+        return <Cadasters name={users.name} age={users.age}  />;
       })}
     </div>
   );

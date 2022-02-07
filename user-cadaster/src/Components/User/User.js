@@ -1,6 +1,5 @@
 import React from "react";
-import UserName from "./InputName/UserName";
-import Password from "./InputAge/UserAge";
+import Form from "./FormInput/Form";
 import Button from "../Button/Button";
 import CadasteredSection from "../CadasteredUsers/CadasteredSection";
 import "./User.css";
@@ -24,8 +23,7 @@ const User = () => {
   return (
     <div className="container">
       <div className="UserCadaster-container">
-        <UserName />
-        <Password />
+        <Form/>
         <Button className="addUser-button" title={"Adicionar"} />
       </div>
       <CadasteredSection db={db} />
