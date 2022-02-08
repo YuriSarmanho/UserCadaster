@@ -17,9 +17,11 @@ const Form = (props) => {
   const addUserHandler = (event) => {
     event.preventDefault();
     if (userName.trim().length === 0 || userAge.trim().length === 0) {
+      props.setShowErro(true)
       return;
     }
     if (+userAge < 0) {
+      props.setShowErro(true)
       return;
     }
     props.setUserList(userName, userAge);

@@ -14,7 +14,7 @@ const Modal = (props) => {
           <p>{props.message}</p>
         </div>
         <footer className="actions">
-          <Button type={'button'}>Ok</Button>
+          <Button type={'button'} onClick={()=>props.setShowErro(false)}>Ok</Button>
         </footer>
       </div>
     </> 
