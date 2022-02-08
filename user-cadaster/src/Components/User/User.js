@@ -1,32 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "./FormInput/Form";
-import Button from "../Button/Button";
 import CadasteredSection from "../CadasteredUsers/CadasteredSection";
 import "./User.css";
 
 const User = () => {
-  const db = [
-    {
-      name: "Pedro",
-      age: "32",
-    },
-    {
-      name: "Yuri",
-      age: "21",
-    },
-    {
-      name: "Renata",
-      age: "46",
-    },
-  ];
+  const [userList, setUserList] = useState([]);
+
+  const addUserList = (uName,uAge) => {
+    setUserList((prevUserList) => {
+      return [...prevUserList, { name: uName, age: uAge, id: Math.random() }];
+    });
+  };
 
   return (
     <div className="container">
       <div className="UserCadaster-container">
-        <Form/>
-        <Button className="addUser-button" title={"Adicionar"} />
+        <Form setUserList={addUserList} />
       </div>
-      <CadasteredSection db={db} />
+      <CadasteredSection db={userList} />
     </div>
   );
 };

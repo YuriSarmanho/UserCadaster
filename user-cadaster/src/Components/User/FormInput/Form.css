@@ -5,10 +5,7 @@
     flex-direction: column;
     width: 100%;
 }
-.userAge-container{
+.user-container{
     padding-top: 10px;
-    width: 80%;
-}
-.userName-container{
     width: 80%;
 }
