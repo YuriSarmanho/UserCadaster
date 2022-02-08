@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "./FormInput/Form";
+import Modal from "../ModalErro/Modal";
 import CadasteredSection from "../CadasteredUsers/CadasteredSection";
 import "./User.css";
 
@@ -14,6 +15,7 @@ const User = () => {
 
   return (
     <div className="container">
+      <Modal title={"Um erro aconteceu"} message={"Escreva uma valor válido no nome"}/>
       <div className="UserCadaster-container">
         <Form setUserList={addUserList} />
       </div>

@@ -15,14 +15,13 @@ const Form = (props) => {
   };
   
   const addUserHandler = (event) => {
+    event.preventDefault();
     if (userName.trim().length === 0 || userAge.trim().length === 0) {
       return;
     }
     if (+userAge < 0) {
       return;
     }
-
-    event.preventDefault();
     props.setUserList(userName, userAge);
     setUserAge("");
     setUserName("");
@@ -38,7 +37,7 @@ const Form = (props) => {
         <h2>Idade</h2>
         <input onChange={addAgeHandler} value={userAge} type="number" />
       </div>
-      <Button type={"submit"} value={"Adicionar"} />
+      <Button type={"submit"}>Adicionar</Button>
     </form>
   );
 };
