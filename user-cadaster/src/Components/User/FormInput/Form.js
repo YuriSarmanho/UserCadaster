@@ -10,25 +10,26 @@ const Form = (props) => {
     nameInputRef.current.value = "";
     ageInputRef.current.value = "";
   };
-  const isInputEmpty = (enteredName,enteredAge) => {
-    if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
-      props.setShowErro(true);
-      return;
-    }
+  const isInputEmpty = (enteredName, enteredAge) => {
+    return enteredName.trim().length === 0 || enteredAge.trim().length === 0;
   };
   const isAgeNegative = (enteredAge) => {
-    if (+enteredAge < 0) {
-      props.setShowErro(true);
-      return;
-    }
+    return +enteredAge < 0;
   };
 
   const addUserHandler = (event) => {
     event.preventDefault();
     const enteredName = nameInputRef.current.value;
     const enteredAge = ageInputRef.current.value;
-    isInputEmpty(enteredName,enteredAge);
-    isAgeNegative(enteredAge);
+
+    if (isInputEmpty(enteredName, enteredAge)) {
+      props.setShowErro(true);
+      return;
+    }
+    if (isAgeNegative(enteredAge)) {
+      props.setShowErro(true);
+      return;
+    }
     props.setUserList(enteredName, enteredAge);
     cleanInput();
   };
