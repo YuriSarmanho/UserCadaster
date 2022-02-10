@@ -1,43 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Button from "../../Button/Button";
 import "./Form.css";
 
 const Form = (props) => {
-  //Pegar o input de nome e idade, e salvar no state
-  const [userName, setUserName] = useState("");
-  const [userAge, setUserAge] = useState("");
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
 
-  const addNameHandler = (event) => {
-    setUserName(event.target.value);
+  const cleanInput = () => {
+    nameInputRef.current.value = "";
+    ageInputRef.current.value = "";
   };
-  const addAgeHandler = (event) => {
-    setUserAge(event.target.value);
+  const isInputEmpty = (enteredName,enteredAge) => {
+    if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
+      props.setShowErro(true);
+      return;
+    }
   };
-  
+  const isAgeNegative = (enteredAge) => {
+    if (+enteredAge < 0) {
+      props.setShowErro(true);
+      return;
+    }
+  };
+
   const addUserHandler = (event) => {
     event.preventDefault();
-    if (userName.trim().length === 0 || userAge.trim().length === 0) {
-      props.setShowErro(true)
-      return;
-    }
-    if (+userAge < 0) {
-      props.setShowErro(true)
-      return;
-    }
-    props.setUserList(userName, userAge);
-    setUserAge("");
-    setUserName("");
+    const enteredName = nameInputRef.current.value;
+    const enteredAge = ageInputRef.current.value;
+    isInputEmpty(enteredName,enteredAge);
+    isAgeNegative(enteredAge);
+    props.setUserList(enteredName, enteredAge);
+    cleanInput();
   };
 
   return (
     <form className="container-form" onSubmit={addUserHandler}>
       <div className="user-container">
         <h2>Usuário</h2>
-        <input onChange={addNameHandler} value={userName} type="text" />
+        <input ref={nameInputRef} type="text" />
       </div>
       <div className="user-container">
         <h2>Idade</h2>
-        <input onChange={addAgeHandler} value={userAge} type="number" />
+        <input ref={ageInputRef} type="number" />
       </div>
       <Button type={"submit"}>Adicionar</Button>
     </form>
